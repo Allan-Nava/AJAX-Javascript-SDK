@@ -6,8 +6,12 @@
  *  Created by [ Allan Nava ].
  *  Updated by [ Allan Nava ]
  *  Copyright © 2020 [ Allan Nava ]. All rights reserved.
+ * 
+ * 
+ *  Required JQuery + JQuery cookie
+ *  
 */
-MyObject = {
+let MyObject = {
   refresh: false,
   api_url: window.base_api_url != "" ? window.api_url : "https://api.url.it/api/v1/en",
   ajax: {
@@ -35,9 +39,9 @@ MyObject = {
                 },
                 success: function( data ,status, request) {
                     if (request.getResponseHeader("last-modified") == "true"){
-                        if (!Footters.refresh){
-                            Footters.refresh = true
-                            Footters.ajax.post(window.base_api_url + "/api/v1/refresh", {"token": $.cookie("refresh_token")}, function(data){
+                        if (!MyObject.refresh){
+                            MyObject.refresh = true
+                            MyObject.ajax.post(window.base_api_url + "/api/v1/refresh", {"token": $.cookie("refresh_token")}, function(data){
                                 if (data.success){
                                     var access_token = data.data.access_token;
                                     var refresh_token = data.data.refresh_token;
@@ -104,9 +108,9 @@ MyObject = {
                 success: function( data, status, request ) {
                     
                     if (request.getResponseHeader("last-modified") == "true"){
-                        if (!Footters.refresh){
-                            Footters.refresh = true
-                            Footters.ajax.post(window.base_api_url + "/api/v1/refresh", {"token": $.cookie("refresh_token")}, function(data){
+                        if (!MyObject.refresh){
+                            MyObject.refresh = true
+                            MyObject.ajax.post(window.base_api_url + "/api/v1/refresh", {"token": $.cookie("refresh_token")}, function(data){
                                 if (data.success){
                                     var access_token = data.data.access_token;
                                     var refresh_token = data.data.refresh_token;
