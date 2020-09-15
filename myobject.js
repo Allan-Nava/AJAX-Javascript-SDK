@@ -146,6 +146,29 @@ MyObject = {
             
             $.ajax(config)
         },   
+    },
+    api: {
+        /**  registration */
+        signup: function(data,callback,errorCallback,button){
+            //console.log(data);
+            if (typeof(errorCallback) === undefined){
+                var errorCallback = function(a,s,d){
+                    console.log(a,s,d);
+                }
+            }
+            MyObject.ajax.post(window.base_url + "/api/auth-register/", data, callback, errorCallback, button);
+        },
+        /**  login */
+        login: function(data,callback,errorCallback,button){
+            //console.log(data);
+            if (typeof(errorCallback) === undefined){
+                var errorCallback = function(a,s,d){
+                    console.log(a,s,d);
+                }
+            }
+            MyObject.ajax.post(window.base_url + "/api/auth-login/", data, callback, errorCallback, button);
+        },
     }
   //
 }
+//
