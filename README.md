@@ -6,11 +6,13 @@ How it works:
 // for example
 let data = new FormData();
 data.append('email', 'asd@asd.com');
-data.append('password', 'test')?
+data.append('password', 'test');
+//
 MyObject.api.signup(data, function(successData){
   // promise success
 }, function(error){
   //promise errorData
 }, null);
+//
 
 ```
