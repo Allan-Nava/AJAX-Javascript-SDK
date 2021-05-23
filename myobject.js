@@ -9,6 +9,8 @@
  * 
  * 
  *  Required JQuery + JQuery cookie
+ *  https://github.com/carhartl/jquery-cookie
+ *  https://jquery.com/download/ 
  *  
 */
 let MyObject = {
